@@ -14,13 +14,10 @@ var orm = {
         });
     },
 
-    insertOne: function (burger, cb) {
-        var queryString = "INSERT INTO burgers(burger_name, devoured)
-        VALUES(?, false)";
+    insertOne: function (burgerName, cb) {
+        var queryString = "INSERT INTO burgers(burger_name, devoured) VALUES(?, false)";
 
-        console.log(queryString);
-
-        connection.query(queryString, [burger], function (err, result) {
+        connection.query(queryString, [burgerName], function (err, result) {
             if (err) {
                 throw err;
             }
